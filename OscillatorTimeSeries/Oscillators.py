@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-class Harmonic_Oscilataor2():
+class Harmonic_Oscillator():
     def __init__(self, mass, force_const, initial_amplitude, damping_const=0, driving_force=0, driving_frequency=0, velocity = 0):
         self.m = mass
         self.k = force_const
@@ -74,7 +74,7 @@ class Harmonic_Oscilataor2():
         return self.x_pos
 
 
-oscillator = Harmonic_Oscilataor2(
+oscillator = Harmonic_Oscillator(
     mass=1.0,
     force_const=1.0,          # → ω₀ = √(k/m) = 1.0
     initial_amplitude=1.0,    # Start with same amplitude as driven oscillation
