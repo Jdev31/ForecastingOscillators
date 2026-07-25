@@ -29,10 +29,11 @@ class Harmonic_Oscillator():
             self.omega_damped = np.sqrt(self.gamma ** 2 - self.omega_0 ** 2)
             self.C_1 = (self.A * (self.omega_damped - self.gamma) + self.v)/(2 * self.omega_damped)
             self.C_2 = (self.A * (self.omega_damped + self.gamma) - self.v)/(2 * self.omega_damped)
-        elif self.crit_damped():
 
+        elif self.crit_damped():
             self.C_1 = self.A
             self.C_2 = self.v - self.gamma * self.A
+
         elif self.light_damped():
             self.omega_damped = np.sqrt(self.omega_0 ** 2 - self.gamma ** 2)
             self.C_1 = self.A
@@ -74,24 +75,24 @@ class Harmonic_Oscillator():
         return self.x_pos
 
 
-oscillator = Harmonic_Oscillator(
-    mass=1.0,
-    force_const=1.0,          # → ω₀ = √(k/m) = 1.0
-    initial_amplitude=1.0,    # Start with same amplitude as driven oscillation
-    velocity=0.0,             # Zero initial velocity for clean phase
-    damping_const=0.01,       # Very light damping (γ = b/2m = 0.005)
-    driving_force=1.0,
-    driving_frequency=0.8    # Close to ω₀ = 1.0 → beat frequency ≈ 0.05
-)
+# oscillator = Harmonic_Oscillator(
+#     mass=1.0,
+#     force_const=1.0,          # → ω₀ = √(k/m) = 1.0
+#     initial_amplitude=1.0,    # Start with same amplitude as driven oscillation
+#     velocity=0.0,             # Zero initial velocity for clean phase
+#     damping_const=0.01,       # Very light damping (γ = b/2m = 0.005)
+#     driving_force=1.0,
+#     driving_frequency=0.8    # Close to ω₀ = 1.0 → beat frequency ≈ 0.05
+# )
 
 
 
-t = np.linspace(0, 100, 1000)
-x = oscillator.get_x_pos(t)
+# t = np.linspace(0, 100, 1000)
+# x = oscillator.get_x_pos(t)
 
-plt.plot(t, x)
-plt.xlabel("Time")
-plt.ylabel("Position")
+# plt.plot(t, x)
+# plt.xlabel("Time")
+# plt.ylabel("Position")
 
 
-plt.show()
+# plt.show()
