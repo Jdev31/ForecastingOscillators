@@ -6,7 +6,9 @@ class Harmonic_Oscillator():
     def __init__(self, mass, force_const, initial_amplitude, damping_const=0, driving_force=0, driving_frequency=0, velocity = 0):
         self.m = mass
         self.k = force_const
-        self.A = initial_amplitude  # Initial position (x0)
+        # Initial position of the HOMOGENEOUS (transient) part, not of x itself.
+        # With driving on, x(0) = A + A_driven * cos(delta), not A.
+        self.A = initial_amplitude
         self.b = damping_const
         self.F_0 = driving_force
         self.omega_drive = driving_frequency
@@ -27,17 +29,19 @@ class Harmonic_Oscillator():
 
         if self.overdamped(): 
             self.omega_damped = np.sqrt(self.gamma ** 2 - self.omega_0 ** 2)
-            self.C_1 = (self.A * (self.omega_damped - self.gamma) + self.v)/(2 * self.omega_damped)
-            self.C_2 = (self.A * (self.omega_damped + self.gamma) - self.v)/(2 * self.omega_damped)
+            # sign of gamma: x'(0) = -gamma*A + omega_damped*(C_1 - C_2) must equal v,
+            # so C_1 - C_2 = (v + gamma*A)/omega_damped
+            self.C_1 = (self.A * (self.omega_damped + self.gamma) + self.v)/(2 * self.omega_damped)
+            self.C_2 = (self.A * (self.omega_damped - self.gamma) - self.v)/(2 * self.omega_damped)
 
         elif self.crit_damped():
             self.C_1 = self.A
-            self.C_2 = self.v - self.gamma * self.A
+            self.C_2 = self.v + self.gamma * self.A
 
         elif self.light_damped():
             self.omega_damped = np.sqrt(self.omega_0 ** 2 - self.gamma ** 2)
             self.C_1 = self.A
-            self.C_2 = (self.v - self.gamma * self.A)/self.omega_damped
+            self.C_2 = (self.v + self.gamma * self.A)/self.omega_damped
 
         if self.F_0 > 0:
             denom = (
