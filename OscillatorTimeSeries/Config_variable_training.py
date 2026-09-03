@@ -200,8 +200,8 @@ class PINN:
         cs = ConfigurationSpace(seed=0)
 
         # First we create our hyperparameters
-        lr = Float("lr", (0.0001, 1), default=0.01, log=True)
-        hidden_neurons = Integer("hidden_neurons", (128, 1024), default=512)
+        lr = Float("lr", (0.00001, 1), default=0.01, log=True)
+        hidden_neurons = Integer("hidden_neurons", (128, 2048), default=512)
         physics_const = Float("physics_const", (0.0, 1), default=0.5)
         basic_const = Float("basic_const", (0.0, 1.0), default=1.0)
 
@@ -297,7 +297,7 @@ if __name__ == "__main__":
     # Next, we create an object, holding general information about the run
     scenario = Scenario(
         pinn.configspace,
-        n_trials=50,  # We want to run max 50 trials (combination of config and seed)
+        n_trials=100,  # We want to run max 50 trials (combination of config and seed)
         deterministic=True,  # every (config, seed) here is fully reproducible (fixed
                               # seeds, forced cudnn determinism) -- no need for SMAC to
                               # re-evaluate a config under multiple seeds to average out

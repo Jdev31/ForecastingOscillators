@@ -1,0 +1,50 @@
+  hidden=1024 lr=9.34e-03 physics_const=0.829 basic_const=0.058 -> forecast MSE 0.260511  (34.0s)
+Incumbent cost: 0.2605108618736267
+
+  epoch   1501/2000  loss 0.048173  lr 5.11e-03
+  epoch   2000/2000  loss 0.045682  lr 0.00e+00
+  hidden=1024 lr=3.50e-02 physics_const=0.021 basic_const=0.043 -> forecast MSE 0.623235  (33.7s)
+[INFO][smbo.py:334] Finished 50 trials.
+[INFO][smbo.py:342] Configuration budget is exhausted:
+[INFO][smbo.py:343] --- Remaining wallclock time: inf
+[INFO][smbo.py:344] --- Remaining cpu time: inf
+[INFO][smbo.py:345] --- Remaining trials: 0
+[INFO][abstract_intensifier.py:313] Using only one seed for deterministic scenario.
+  epoch      1/2000  loss 1.369836  lr 1.00e-02
+  epoch    501/2000  loss 0.430557  lr 8.53e-03
+  epoch   1001/2000  loss 0.157459  lr 4.99e-03
+  epoch   1501/2000  loss 0.109324  lr 1.46e-03
+  epoch   2000/2000  loss 0.096408  lr 0.00e+00
+  hidden= 512 lr=1.00e-02 physics_const=0.500 basic_const=1.000 -> forecast MSE 0.497010  (16.2s)
+Default cost: 0.4970100224018097
+  epoch      1/2000  loss 0.484855  lr 9.34e-03
+  epoch    501/2000  loss 0.231739  lr 7.96e-03
+  epoch   1001/2000  loss 0.173302  lr 4.66e-03
+  epoch   1501/2000  loss 0.152249  lr 1.36e-03
+  epoch   2000/2000  loss 0.139696  lr 0.00e+00
+  hidden=1024 lr=9.34e-03 physics_const=0.829 basic_const=0.058 -> forecast MSE 0.260511  (34.0s)
+Incumbent cost: 0.2605108618736267
+(torch_venv) PS D:\Programming\python\Machi
+
+
+  hidden=2041 lr=7.38e-03 physics_const=1.000 basic_const=0.220 -> forecast MSE 0.182239  (97.6s)
+[INFO][smbo.py:334] Finished 100 trials.
+[INFO][smbo.py:342] Configuration budget is exhausted:
+[INFO][smbo.py:343] --- Remaining wallclock time: inf
+[INFO][smbo.py:344] --- Remaining cpu time: inf
+[INFO][smbo.py:345] --- Remaining trials: 0
+[INFO][abstract_intensifier.py:313] Using only one seed for deterministic scenario.
+  epoch      1/2000  loss 1.369836  lr 1.00e-02
+  epoch    501/2000  loss 0.430557  lr 8.53e-03
+  epoch   1001/2000  loss 0.157459  lr 4.99e-03
+  epoch   1501/2000  loss 0.109324  lr 1.46e-03
+  epoch   2000/2000  loss 0.096408  lr 0.00e+00
+  hidden= 512 lr=1.00e-02 physics_const=0.500 basic_const=1.000 -> forecast MSE 0.497010  (15.4s)
+Default cost: 0.4970100224018097
+  epoch      1/2000  loss 0.817825  lr 7.40e-03
+  epoch    501/2000  loss 0.400420  lr 6.31e-03
+  epoch   1001/2000  loss 0.384952  lr 3.69e-03
+  epoch   1501/2000  loss 0.340089  lr 1.08e-03
+  epoch   2000/2000  loss 0.325146  lr 0.00e+00
+  hidden=2041 lr=7.40e-03 physics_const=1.000 basic_const=0.218 -> forecast MSE 0.174187  (97.3s)
+Incumbent cost: 0.17418700456619263
