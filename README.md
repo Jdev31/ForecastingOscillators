@@ -1,9 +1,9 @@
 # Creating a Physics Informed Neural Network that forecasts the movements of a Forced Damped Harmonic Oscillator
 
 This repository primarily focuses on the jupyter notebook `pytorch_PINN.ipynb` which trains a Physics Informed Neural Network (PINN) to forecast the simple, but crucial physical model of a Harmonic Oscillator. The model is trained on a limited number of data points taken from analytic harmonic oscillator solver script (`Oscillators.py`) and an additional number of collocation data points that are used to inform the neural network of the physical dynamics described by the harmonic oscillator equation: 
-$$
-m\frac{\mathrm{d}^2x}{\mathrm{dt^2}} + b \frac{dx}{dt} + kx - F_0 \cos({w_0 t}) = 0
-$$
+
+$m\frac{{d}^2x}{{dt^2}} + b \frac{dx}{dt} + kx - F_0 \cos({w_0 t}) = 0$
+
 The network is trained on the equation above by first calculating  $\frac{\mathrm{d}^2x}{\mathrm{dt^2}}$ and $\frac{dx}{dt}$ by backpropgating from the predicted x value of the model to the initial `t` value using chain rule. Then using these results you can find the mean squared error of the equation and treat it as an additional loss value. 
 
 
