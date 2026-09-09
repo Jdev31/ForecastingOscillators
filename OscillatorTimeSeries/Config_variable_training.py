@@ -55,7 +55,7 @@ DIVERGED_COST = 1e6
 
 
 class PINN:
-    def __init__(self, curriculum=None, epochs=2000, log_every=500,
+    def __init__(self, curriculum=None, epochs=20000, log_every=5000,
                  use_scheduler=True, n_colloc=2000, split_seed=42):
         m = 1.0
         k = 1.0
@@ -171,11 +171,6 @@ class PINN:
                                    grad_outputs=torch.ones_like(dxdt_norm),
                                    create_graph=True)[0]
 
-        # the network outputs x_norm as a function of t_norm, so undo BOTH
-        # normalisations before the derivatives mean anything physically:
-        #   x = x_norm * x_std + x_mean,  t = t_norm * t_std + t_mean
-        # dx/dt    = dx_norm/dt_norm * x_std / t_std
-        # d2x/dt2  = d2x_norm/dt_norm2 * x_std / t_std ** 2
         dxdt = dxdt_norm * self.x_std / self.t_std
         d2xdt2 = d2xdt2_norm * self.x_std / self.t_std ** 2
 
@@ -299,10 +294,7 @@ if __name__ == "__main__":
         pinn.configspace,
         n_trials=100,  # We want to run max 50 trials (combination of config and seed)
         deterministic=True,  # every (config, seed) here is fully reproducible (fixed
-                              # seeds, forced cudnn determinism) -- no need for SMAC to
-                              # re-evaluate a config under multiple seeds to average out
-                              # noise that doesn't exist
-    )
+       )
 
     # We want to run the facade's default initial design, but we want to change the number
     # of initial configs to 5.
