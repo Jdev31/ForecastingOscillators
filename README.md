@@ -9,6 +9,10 @@ The network is trained on the equation above by first calculating  $\frac{\mathr
 
 ## Results 
 
+![Example Comparison](OscillatorTimeSeries/figures/forecast_comparison1.pdf)
+
+The figure shows the difference in forecasting between the basic Neural Network (blue) and the PINN (orange) compared to the analytical solution (grey)
+
 I found that adding the physics informed loss function drastically improved its forecasting ability. It was also noted that with enough training time, the model could fit the data to the correct analytical solution without any data points, being solely trained on the harmonic oscillator equation, however it was a much longer training time. These results were expected as basic neural networks are known for not being able to forecast data as they have no effective memory and the PINN intuitively increases its forecasting ability by forcing the model to learn the physical properties behind it which repeats with time. 
 
 ## The purpose of this repository
@@ -25,7 +29,7 @@ To optimise the hyperparameters, I implemented SMAC3's random forest baysian opt
 
 The code (found in `Config_variable_training.py`) has been written to vary: learning rate, number of neurons in the hidden layer of the model, and physical models importance compared to the actual data in training. However, I have not spent enough time running and testing the algorithm to get confident results before I have had to move back to university where I do not have access to my desktop and GPU to train the models, leading to an unfortunate end to this project for now.
 
-In future I plan to continue to test the hyperparameter optimisation algorithm to check reproducibility and accuracy; increase the dimensions of the hyperparemeter space; add noise to the model to see if this model would be useful when looking at real world data; and test multiple different harmonic oscillators to see if the optimal hyperparameters transfer between them. As with my other projects I plan to make a longer version of this describing the PINN in more detail when I can collect slightly more data, which can be found on my website at https://jdev31.github.io"
+In future I plan to continue to test the hyperparameter optimisation algorithm to check reproducibility and accuracy; increase the dimensions of the hyperparemeter space; add noise to the model to see if this model would be useful when looking at real world data; and test multiple different harmonic oscillators to see if the optimal hyperparameters transfer between them. As with my other projects I plan to make a longer version of this describing the PINN in more detail when I can collect slightly more data, which can be found on my website at https://jdev31.github.io
 
 ## Credits
 Before beginning this project I started my neural network journey watching 3Blue1Brown's  Youtube videos on Backpropagation. I then moved onto Andrew Karpathy's "Neural Networks: Zero to Hero" Lecture on Youtube, implementing a neural network from scratch and modeling it off of the pytorch architecture. From here I read the first PINN paper: Raissi, Perdikaris & Karniadakis (2019), "Physics-Informed Neural Networks." and then implemented my own PINN using the Introduction to Pytorch Lecture series and Karpathy's lecture as a basis to build off.
