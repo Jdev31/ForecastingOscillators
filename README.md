@@ -9,7 +9,7 @@ The network is trained on the equation above by first calculating  $\frac{\mathr
 
 ## Results 
 
-![Example Comparison](OscillatorTimeSeries/figures/forecast_comparison1.pdf)
+![Example Comparison](OscillatorTimeSeries/figures/forcast_comparison1.pdf)
 
 The figure shows the difference in forecasting between the basic Neural Network (blue) and the PINN (orange) compared to the analytical solution (grey)
 
