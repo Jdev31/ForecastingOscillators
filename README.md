@@ -8,10 +8,10 @@ The network is trained on the equation above by first calculating  $\frac{\mathr
 
 
 ## Results 
-
+<!-- 
 ![Example Comparison](OscillatorTimeSeries/figures/forcast_comparison1.png)
 
-The figure shows the difference in forecasting between the basic Neural Network (blue) and the PINN (orange) compared to the analytical solution (grey)
+The figure shows the difference in forecasting between the basic Neural Network (blue) and the PINN (orange) compared to the analytical solution (grey) -->
 
 I found that adding the physics informed loss function drastically improved its forecasting ability. It was also noted that with enough training time, the model could fit the data to the correct analytical solution without any data points, being solely trained on the harmonic oscillator equation, however it was a much longer training time. These results were expected as basic neural networks are known for not being able to forecast data as they have no effective memory and the PINN intuitively increases its forecasting ability by forcing the model to learn the physical properties behind it which repeats with time. 
 
