@@ -1,12 +1,5 @@
 # Creating a Physics Informed Neural Network that forecasts the movements of a Forced Damped Harmonic Oscillator
 
-**This is a copy of the Github README.md, full post coming soon**
-
-Please find the repository at: <https://github.com/Jdev31/ForecastingOscillators>
-
-
----
-
 
 This repository primarily focuses on the jupyter notebook `pytorch_PINN.ipynb` which trains a Physics Informed Neural Network (PINN) to forecast the simple, but crucial physical model of a Harmonic Oscillator. The model is trained on a limited number of data points taken from analytic harmonic oscillator solver script (`Oscillators.py`) and an additional number of collocation data points that are used to inform the neural network of the physical dynamics described by the harmonic oscillator equation: 
 
